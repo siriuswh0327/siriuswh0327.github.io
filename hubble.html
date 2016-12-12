@@ -42,10 +42,10 @@ safari的另一个问题也不确定算不算，就是对img标签的识别。�
 同时，在做移动端还需要注意的是，所有android和iOS设备的自带浏览器是禁用音乐和视频的自动播放的，也就是说在audio或者video标签上加autoplay属性是无效的，如果客户一定要在浏览器端实现自动播放的效果，那么可以通过增加一个touch事件，手动播放相应的文件即可。
 代码示例如下：
 ```JS
-   $('html').on('touchstart',function(){
+$('html').on('touchstart',function(){
     var bgm = document.getElementById("bgm");
     bgm.play();
-  });
+ });
 ```
 当然需要注意的是touchstart事件有个警告，就是FF即将放弃对这个属性的支持，因此保险起见，需要引入hammer.js。
 
@@ -71,10 +71,10 @@ safari的另一个问题也不确定算不算，就是对img标签的识别。�
 <p>同时，在做移动端还需要注意的是，所有android和iOS设备的自带浏览器是禁用音乐和视频的自动播放的，也就是说在audio或者video标签上加autoplay属性是无效的，如果客户一定要在浏览器端实现自动播放的效果，那么可以通过增加一个touch事件，手动播放相应的文件即可。
 代码示例如下：</p>
 
-<pre><code class="JS">   $('html').on('touchstart',function(){
+<pre><code class="JS">$('html').on('touchstart',function(){
     var bgm = document.getElementById("bgm");
     bgm.play();
-  });
+ });
 </code></pre>
 
 <p>当然需要注意的是touchstart事件有个警告，就是FF即将放弃对这个属性的支持，因此保险起见，需要引入hammer.js。</p>
