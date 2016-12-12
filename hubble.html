@@ -1,0 +1,153 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="Keywords" content="blog"/>
+    <meta name="Description" content="blog"/>
+    <title>Simple</title>
+    <link rel="shortcut icon" href="/static/favicon.png"/>
+    <link rel="stylesheet" type="text/css" href="/main.css" />
+</head>
+<body>
+<div class="main">
+    <div class="header">
+    	<ul id="pages">
+            <li><a href="/">home</a></li>
+            <li><a href="/#/tags">tags</a></li>
+            <li><a href="/#/archive">archive</a></li>
+    	</ul>
+    </div>
+	<div class="wrap-header">
+	<h1>
+    <a href="/" id="title"></a>
+	</h1>
+	</div>
+<div id="md" style="display: none;">
+<!-- markdown -->
+到公司来的第一个H5项目，是做一个圣诞节的活动宣传。
+
+页面流程大致如下：Loading  →  欢迎页  →  小游戏  →  分享页  →  活动详情
+
+[项目地址](http://xtest.qiaohu.com/wx/#page2)
+
+刚开始拿到项目的策划案的时候就在思考用什么框架，考虑到项目并没有什么数据交互，找了一圈之后决定用阿里的SUI，因为合作的前端妹子主要写游戏，而且没用过MVVM的框架，业务上也没有数据交互显示这方面的需求，于是就选了这样的一款轻量的UI框架。
+
+先说说遇到的最大的一个坑，就是SUI的这个框架做的项目不能用safari无痕模式浏览。原因是，safari禁用了session storage这个对象，而SUI的router机制就是建立在session storage这个对象上的。因此，SUI不适用于移动端浏览器项目。
+
+其实safari在移动端的坑不少，在分析router跳转问题的时候，还查到了iOS10的safari对translate：transform这个属性的解析也是存在问题的，如果发生transform的元素没有宽高，这条属性就会失效，解决方法就是在对应元素加上width：100%和height：100%就好了。
+
+safari的另一个问题也不确定算不算，就是对img标签的识别。同样一张图片，在别的浏览器上都可以长按呼出菜单保存，唯独safari不行，尝试了各种布局方式均无效后放弃治疗。
+
+同时，在做移动端还需要注意的是，所有android和iOS设备的自带浏览器是禁用音乐和视频的自动播放的，也就是说在audio或者video标签上加autoplay属性是无效的，如果客户一定要在浏览器端实现自动播放的效果，那么可以通过增加一个touch事件，手动播放相应的文件即可。
+代码示例如下：
+```JS
+   $('html').on('touchstart',function(){
+    var bgm = document.getElementById("bgm");
+    bgm.play();
+  });
+```
+当然需要注意的是touchstart事件有个警告，就是FF即将放弃对这个属性的支持，因此保险起见，需要引入hammer.js。
+
+前端的坑都是不踩不知道，一踩吓一跳。原本因为移动端可以用很多新特性而感到兴奋，实际做下来发现，兼容性的问题也是一个非常重要的因素，将会占去开发的大部分时间。
+<!-- markdown end -->
+</div>
+<div class="entry" id="main">
+<!-- content -->
+<p>到公司来的第一个H5项目，是做一个圣诞节的活动宣传。</p>
+
+<p>页面流程大致如下：Loading  →  欢迎页  →  小游戏  →  分享页  →  活动详情</p>
+
+<p><a href="http://xtest.qiaohu.com/wx/#page2">项目地址</a></p>
+
+<p>刚开始拿到项目的策划案的时候就在思考用什么框架，考虑到项目并没有什么数据交互，找了一圈之后决定用阿里的SUI，因为合作的前端妹子主要写游戏，而且没用过MVVM的框架，业务上也没有数据交互显示这方面的需求，于是就选了这样的一款轻量的UI框架。</p>
+
+<p>先说说遇到的最大的一个坑，就是SUI的这个框架做的项目不能用safari无痕模式浏览。原因是，safari禁用了session storage这个对象，而SUI的router机制就是建立在session storage这个对象上的。因此，SUI不适用于移动端浏览器项目。</p>
+
+<p>其实safari在移动端的坑不少，在分析router跳转问题的时候，还查到了iOS10的safari对translate：transform这个属性的解析也是存在问题的，如果发生transform的元素没有宽高，这条属性就会失效，解决方法就是在对应元素加上width：100%和height：100%就好了。</p>
+
+<p>safari的另一个问题也不确定算不算，就是对img标签的识别。同样一张图片，在别的浏览器上都可以长按呼出菜单保存，唯独safari不行，尝试了各种布局方式均无效后放弃治疗。</p>
+
+<p>同时，在做移动端还需要注意的是，所有android和iOS设备的自带浏览器是禁用音乐和视频的自动播放的，也就是说在audio或者video标签上加autoplay属性是无效的，如果客户一定要在浏览器端实现自动播放的效果，那么可以通过增加一个touch事件，手动播放相应的文件即可。
+代码示例如下：</p>
+
+<pre><code class="JS">   $('html').on('touchstart',function(){
+    var bgm = document.getElementById("bgm");
+    bgm.play();
+  });
+</code></pre>
+
+<p>当然需要注意的是touchstart事件有个警告，就是FF即将放弃对这个属性的支持，因此保险起见，需要引入hammer.js。</p>
+
+<p>前端的坑都是不踩不知道，一踩吓一跳。原本因为移动端可以用很多新特性而感到兴奋，实际做下来发现，兼容性的问题也是一个非常重要的因素，将会占去开发的大部分时间。</p>
+<!-- content end -->
+</div>
+<br>
+<br>
+    <div id="disqus_thread"></div>
+	<div class="footer">
+		<p>© Copyright 2014 by isnowfy, Designed by isnowfy</p>
+	</div>
+</div>
+<script src="main.js"></script>
+<script id="content" type="text/mustache">
+    <h1>{{title}}</h1>
+    <div class="tag">
+    {{date}}
+    {{#tags}}
+    <a href="/#/tag/{{name}}">#{{name}}</a>
+    {{/tags}}
+    </div>
+</script>
+<script id="pagesTemplate" type="text/mustache">
+    {{#pages}}
+    <li>
+        <a href="{{path}}">{{title}}</a>
+    </li>
+    {{/pages}}
+</script>
+<script>
+$(document).ready(function() {
+    $.ajax({
+        url: "main.json",
+        type: "GET",
+        dataType: "json",
+        success: function(data) {
+            $("#title").html(data.name);
+            var pagesTemplate = Hogan.compile($("#pagesTemplate").html());
+            var pagesHtml = pagesTemplate.render({"pages": data.pages});
+            $("#pages").append(pagesHtml);
+            //path
+            var path = "hubble.html";
+            //path end
+            var now = 0;
+            for (var i = 0; i < data.posts.length; ++i)
+                if (path == data.posts[i].path)
+                    now = i;
+            var post = data.posts[now];
+            var tmp = post.tags.split(" ");
+            var tags = [];
+            for (var i = 0; i < tmp.length; ++i)
+                if (tmp[i].length > 0)
+                    tags.push({"name": tmp[i]});
+            var contentTemplate = Hogan.compile($("#content").html());
+            var contentHtml = contentTemplate.render({"title": post.title, "tags": tags, "date": post.date});
+            $("#main").prepend(contentHtml);
+            if (data.disqus_shortname.length > 0) {
+                var disqus_shortname = data.disqus_shortname;
+                (function() {
+                    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+                })();
+            }
+        }
+    });
+});
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ["\\(", "\\)"]], processEscapes: true}});
+</script>
+</body>
+</html>
